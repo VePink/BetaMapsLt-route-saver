@@ -6,7 +6,7 @@ block_cipher = None
 
 a = Analysis(['BetaMapsLt-route-saver.py'],
              pathex=['C:\\Users\\Ve\\Documents\\GitHub\\BetaMapsLt-route-saver'],
-             binaries=[],
+             binaries=[('./driver/chromedriver.exe', './driver')],
              datas=[],
              hiddenimports=[],
              hookspath=[],

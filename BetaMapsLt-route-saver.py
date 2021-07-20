@@ -1,6 +1,7 @@
 from selenium import webdriver
 import simplekml
 import os
+import sys
 import datetime
 import json
 
@@ -10,7 +11,14 @@ clear() #clear terminal every time code runs
 print("STARTING ...")
 timestampSTART = datetime.datetime.now().strftime("%Y-%m-%d_%H:%M:%S")
 
-PATH = "C:\Program Files (x86)\chromedriver.exe"
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.dirname(__file__)
+    return os.path.join(base_path, relative_path)
+
+
 
 root = input("Paste path to folder. Result KML will be saved there: ")
 root = root.replace('\\','\\\\')
@@ -19,7 +27,8 @@ input_url = input("Paste beta.maps.lt routing URL here and then press enter: ")
 from seleniumwire import webdriver  # Import from seleniumwire
 
 # Create a new instance of the Chrome driver
-driver = webdriver.Chrome(PATH)
+#driver = webdriver.Chrome(PATH)
+driver = webdriver.Chrome(resource_path('./driver/chromedriver.exe'))
 
 print('-----------------')
 print('DO NOT close browser window. Getting route vertices ...')
@@ -83,3 +92,5 @@ print("SUCCESSFUL process")
 
 os.system("pause")
 
+#cd C:\Users\Ve\Documents\GitHub\BetaMapsLt-route-saver
+#pyinstaller ./BetaMapsLt-route-saver.py --onefile --add-binary "./driver/chromedriver.exe;./driver"
