@@ -1,10 +1,11 @@
 # BetaMapsLt-route-saver
-Executable tool saves navigation route planned on Beta Maps.lt as KML file. 
+<h2> About:
+  Executable tool saves navigation route planned on Beta Maps.lt as KML file. 
 
-Prerequisites:
+<h2>Prerequisites:
 * [Google Chrome browser](https://www.google.com/chrome/?) installed
 
-Usage:
+<h2>Usage:
 1. Download [BetaMapsLt-route-saver](https://github.com/VePink/BetaMapsLt-route-saver/blob/main/dist/BetaMapsLt-route-saver.exe?) tool to your PC.
 1. Run tool
 1. Enter path to folder (e.g.: C:\Users\Ve\Documents\Results). KML file will be saved there. Press Enter.
@@ -14,7 +15,7 @@ Usage:
 1. Tool opens Chrome browser and gets required data. If firewall message shows - select 'allow'.
 2. Wait for tool to finish process and close the window. KML file will be inside specified folder.
 
-Disclaimer:
+<h2>Disclaimer:
 This tool is created as personal research and development project. Use at Your own risk. Be sure to comply with [Beta Maps.lt website terms of use](https://beta.maps.lt/page/about?c=2813350.8%2C7302922.9&r=0&s=18055.954822&b=topo&bl=false).
 
 # This is an <h1> tag
