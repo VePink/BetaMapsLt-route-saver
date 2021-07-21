@@ -1,4 +1,3 @@
-from selenium import webdriver
 import simplekml
 import os
 import sys
@@ -8,27 +7,30 @@ import json
 clear = lambda: os.system('cls')
 clear() #clear terminal every time code runs
 
+
+def show_exception_and_exit(exc_type, exc_value, tb):
+    import traceback
+    traceback.print_exception(exc_type, exc_value, tb)
+    input("Press key to exit.")
+    sys.exit(-1)
+
+sys.excepthook = show_exception_and_exit
+
+
 print("STARTING ...")
 timestampSTART = datetime.datetime.now().strftime("%Y-%m-%d_%H:%M:%S")
 
-def resource_path(relative_path):
-    try:
-        base_path = sys._MEIPASS
-    except Exception:
-        base_path = os.path.dirname(__file__)
-    return os.path.join(base_path, relative_path)
-
-
-
-root = input("Paste path to folder. Result KML will be saved there: ")
+root = (input("Paste path to folder. Result KML will be saved there: ") or "D:\\TEMP")
+print("Selected result folder: " + root)
 root = root.replace('\\','\\\\')
-input_url = input("Paste beta.maps.lt routing URL here and then press enter: ")
 
-from seleniumwire import webdriver  # Import from seleniumwire
+input_url = (input("Paste beta.maps.lt routing URL here and then press enter: ") or "https://beta.maps.lt/route/2352894.9400547915%2C7499450.809661161%40YTE4NzQyODg%3D%3B2702415.017184936%2C7376482.156027843%40czE0NjQzMw%3D%3D/car/fastest/single?c=2380887.5%2C7440929&r=0&s=2311162.217155&b=topo&bl=false")
+print("Selected input URL: " + input_url)
 
-# Create a new instance of the Chrome driver
-#driver = webdriver.Chrome(PATH)
-driver = webdriver.Chrome(resource_path('./driver/chromedriver.exe'))
+from seleniumwire import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+
+driver = webdriver.Chrome(executable_path = ChromeDriverManager().install())
 
 print('-----------------')
 print('DO NOT close browser window. Getting route vertices ...')
@@ -41,13 +43,13 @@ response_body = ''
 # Access requests via the `requests` attribute
 for request in driver.requests:
     if request.url == "https://beta.maps.lt/services/agssecure/Marsrutai/Marsrutai_WM_FGDB_D/NAServer/Route/solve": 
-        response_body=request.response.body
+        response_body = request.response.body
 
 response_body = json.loads(response_body)
 
 routeVertices_EPGS3857 = response_body['routes']['features'][0]['geometry']['paths'][0]
 
-driver.quit()
+driver.close()
 print('-----------------')
 print('Transforming vertex coordinates ...')
 
@@ -90,7 +92,8 @@ print("ended: " + timestampEND)
 print("____________________")
 print("SUCCESSFUL process")
 
-os.system("pause")
+#os.system("pause")
+
 
 #cd C:\Users\Ve\Documents\GitHub\BetaMapsLt-route-saver
-#pyinstaller ./BetaMapsLt-route-saver.py --onefile --add-binary "./driver/chromedriver.exe;./driver"
+#pyinstaller ./BetaMapsLt-route-saver.py --onefile
