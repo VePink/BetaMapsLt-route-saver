@@ -2,6 +2,9 @@
 ## About:
 Executable tool saves navigation route planned on Beta Maps.lt as KML file. 
 
+![GitHub Logo](/images/logo.png)
+Format: ![Alt Text](url)
+
 ## Prerequisites:
 * [Google Chrome browser](https://www.google.com/chrome/?) installed
 
