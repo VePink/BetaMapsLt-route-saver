@@ -1,5 +1,5 @@
 # BetaMapsLt-route-saver
-<h2> About:
+#About:<h2> 
   Executable tool saves navigation route planned on Beta Maps.lt as KML file. 
 
 <h2>Prerequisites:
