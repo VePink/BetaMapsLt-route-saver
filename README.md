@@ -15,4 +15,8 @@ Usage:
 2. Wait for tool to finish process and close the window. KML file will be inside specified folder.
 
 Disclaimer:
- This tool is created as personal research and development project. Be sure to comply with [Beta Maps.lt website terms of use](https://beta.maps.lt/page/about?c=2813350.8%2C7302922.9&r=0&s=18055.954822&b=topo&bl=false)
+This tool is created as personal research and development project. Use at Your own risk. Be sure to comply with [Beta Maps.lt website terms of use](https://beta.maps.lt/page/about?c=2813350.8%2C7302922.9&r=0&s=18055.954822&b=topo&bl=false).
+
+# This is an <h1> tag
+## This is an <h2> tag
+###### This is an <h6> tag
