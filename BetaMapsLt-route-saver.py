@@ -92,8 +92,8 @@ print("ended: " + timestampEND)
 print("____________________")
 print("SUCCESSFUL process")
 
-#os.system("pause")
 
+# Below are notes for making EXE package with pyinstaller from PY code.
 
-#cd C:\Users\Ve\Documents\GitHub\BetaMapsLt-route-saver
-#pyinstaller ./BetaMapsLt-route-saver.py --onefile
+# cd C:\Users\Ve\Documents\GitHub\BetaMapsLt-route-saver
+# pyinstaller ./BetaMapsLt-route-saver.py --onefile
