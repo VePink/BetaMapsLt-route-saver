@@ -16,6 +16,6 @@ Executable tool saves navigation route planned on Beta Maps.lt as KML file.
 2. Wait for tool to finish process and close the window. KML file will be inside specified folder.
 
 ## Disclaimer:
-This tool is created as personal research and development project. Use at Your own risk. Be sure to comply with [Beta Maps.lt website terms of use](https://beta.maps.lt/page/about) and respect the intellectual property rights of [data owners and providers](https://beta.maps.lt/page/data-providers).
+This tool is created as personal research and development project. Use at Your own risk without any guarantee. Be sure to comply with [Beta Maps.lt website terms of use](https://beta.maps.lt/page/about) and respect the intellectual property rights of [data owners and providers](https://beta.maps.lt/page/data-providers).
 
 
