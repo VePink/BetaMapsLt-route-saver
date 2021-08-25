@@ -5,7 +5,7 @@ block_cipher = None
 
 
 a = Analysis(['BetaMapsLt-route-saver.py'],
-             pathex=['C:\\Users\\Ve\\Documents\\GitHub\\BetaMapsLt-route-saver'],
+             pathex=['C:\\Users\\Vejas\\Documents\\GitHub\\BetaMapsLt-route-saver'],
              binaries=[],
              datas=[],
              hiddenimports=[],

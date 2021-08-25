@@ -85,15 +85,10 @@ print('Saving as KML route ...')
 print('-----------------')
 print("Saved route as KML file on " + root)
 
-timestampEND = datetime.datetime.now().strftime("%Y-%m-%d_%H:%M:%S")
-print("____________________")
-print("started: " + timestampSTART)
-print("ended: " + timestampEND)
-print("____________________")
-print("SUCCESSFUL process")
-
+from CLTreport.summary import report_summary
+report_summary()
 
 # Below are notes for making EXE package with pyinstaller from PY code.
-
 # cd C:\Users\Ve\Documents\GitHub\BetaMapsLt-route-saver
+# cd C:\Users\Vejas\Documents\GitHub\BetaMapsLt-route-saver
 # pyinstaller ./BetaMapsLt-route-saver.py --onefile
