@@ -45,7 +45,7 @@ for request in driver.requests:
     if request.url == "https://beta.maps.lt/services/agssecure/Marsrutai/Marsrutai_WM_FGDB_D/NAServer/Route/solve": 
         response_body = request.response.body
 
-response_body = json.loads(response_body.decode('utf-8', 'ignore'))
+response_body = json.loads(response_body)
 
 routeVertices_EPGS3857 = response_body['routes']['features'][0]['geometry']['paths'][0]
 
@@ -85,10 +85,16 @@ print('Saving as KML route ...')
 print('-----------------')
 print("Saved route as KML file on " + root)
 
-from CLTreport.summary import report_summary
-report_summary()
+timestampEND = datetime.datetime.now().strftime("%Y-%m-%d_%H:%M:%S")
+print("____________________")
+print("started: " + timestampSTART)
+print("ended: " + timestampEND)
+print("____________________")
+print("SUCCESSFUL process")
+
 
 # Below are notes for making EXE package with pyinstaller from PY code.
+
 # cd C:\Users\Ve\Documents\GitHub\BetaMapsLt-route-saver
 # cd C:\Users\Vejas\Documents\GitHub\BetaMapsLt-route-saver
 # pyinstaller ./BetaMapsLt-route-saver.py --onefile
