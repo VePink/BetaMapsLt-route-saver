@@ -64,7 +64,7 @@ kml = simplekml.Kml(open=1)
 
 routePolyline = kml.newlinestring(name="Planned route")
 routePolyline.style.linestyle.color = simplekml.Color.red
-routePolyline.style.linestyle.width = 8 
+routePolyline.style.linestyle.width = 5
 routePolyline.coords = routeVertices_EPSG4326
 
 timestamp = str(datetime.datetime.now().strftime("%Y%m%d_%H%M_%S"))
