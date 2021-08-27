@@ -23,10 +23,6 @@ for request in driver.requests:
     if request.url == "https://beta.maps.lt/services/agssecure/Marsrutai/Marsrutai_WM_FGDB_D/NAServer/Route/solve": 
         response_body = request.response.body
 
-print(response_body)
-
-#if type(response_body) ==
-'''
 import gzip
 response_body = gzip.decompress(response_body)
 response_body = response_body.decode('utf-8')
@@ -82,7 +78,7 @@ print("Saved route as KMZ file on " + root)
 
 from CLTreport.summary import report_summary
 report_summary()
-'''
+
 # Below are notes for making EXE package with pyinstaller from PY code.
 
 # cd C:\Users\Ve\Documents\GitHub\BetaMapsLt-route-saver
