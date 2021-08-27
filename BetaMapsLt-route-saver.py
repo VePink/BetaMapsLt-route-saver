@@ -23,7 +23,7 @@ for request in driver.requests:
     if request.url == "https://beta.maps.lt/services/agssecure/Marsrutai/Marsrutai_WM_FGDB_D/NAServer/Route/solve": 
         response_body = request.response.body
 
-print(type(response_body))
+print(response_body)
 
 #if type(response_body) ==
 '''
