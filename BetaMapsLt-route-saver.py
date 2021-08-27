@@ -1,6 +1,6 @@
 import datetime
 
-root = (input("Paste path to folder. Result KML will be saved there: ") or "D:\\TEMP")
+root = (input("Paste path to folder. Result KML will be saved there: ") or "C:\\Users\\Vejas\\Downloads\\22")
 print("Selected result folder: " + root)
 root = root.replace('\\','\\\\')
 
@@ -23,6 +23,10 @@ for request in driver.requests:
     if request.url == "https://beta.maps.lt/services/agssecure/Marsrutai/Marsrutai_WM_FGDB_D/NAServer/Route/solve": 
         response_body = request.response.body
 
+print(type(response_body))
+
+#if type(response_body) ==
+'''
 import gzip
 response_body = gzip.decompress(response_body)
 response_body = response_body.decode('utf-8')
@@ -78,7 +82,7 @@ print("Saved route as KMZ file on " + root)
 
 from CLTreport.summary import report_summary
 report_summary()
-
+'''
 # Below are notes for making EXE package with pyinstaller from PY code.
 
 # cd C:\Users\Ve\Documents\GitHub\BetaMapsLt-route-saver
