@@ -1,6 +1,6 @@
 import datetime
 
-root = (input("Paste path to folder. Result KML will be saved there: ") or "C:\\Users\\Vejas\\Downloads\\22")
+root = (input("Paste path to folder. Result KML will be saved there: ") or "D:\\TMP")
 print("Selected result folder: " + root)
 root = root.replace('\\','\\\\')
 
