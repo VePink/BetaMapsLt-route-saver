@@ -2,7 +2,7 @@
 ## About:
 Executable tool saves navigation route planned on Beta Maps.lt as KML file. 
 
-<img src="/images/thumbnail.png" width="500"/>
+<img src="/images/thumbnail.webp" width="500"/>
 
 ## Prerequisites:
 * [Google Chrome browser](https://www.google.com/chrome/?) installed
