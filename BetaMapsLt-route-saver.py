@@ -1,14 +1,19 @@
 import datetime
+import gzip
+import json
+import simplekml
+from seleniumwire import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+import traceback
+import sys
 
-root = (input("Paste path to folder. Result KML will be saved there: ") or "D:\\TMP")
+root = (input("Paste path to folder. Result KML will be saved there: ") or "D:\\TEMP")
 print("Selected result folder: " + root)
 root = root.replace('\\','\\\\')
 
 input_url = (input("Paste beta.maps.lt routing URL here and then press enter: ") or "https://beta.maps.lt/route/2663056.466808474%2C7338750.124243488%40czE2MzYxMg%3D%3D%3B2664286.6252324716%2C7340109.27015272%40czE1MTk3Ng%3D%3D/car?c=2664011.9%2C7339444&r=0&s=9027.977411&b=topo&bl=false")
 print("Selected input URL: " + input_url)
 
-from seleniumwire import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
 
 driver = webdriver.Chrome(executable_path = ChromeDriverManager().install())
 
@@ -23,10 +28,10 @@ for request in driver.requests:
     if request.url == "https://beta.maps.lt/services/agssecure/Marsrutai/Marsrutai_WM_FGDB_D/NAServer/Route/solve": 
         response_body = request.response.body
 
-import gzip
+
 response_body = gzip.decompress(response_body)
 response_body = response_body.decode('utf-8')
-import json
+
 response_body = json.loads(response_body)
 
 routeVertices_EPGS3857 = response_body['routes']['features'][0]['geometry']['paths'][0]
@@ -59,7 +64,6 @@ for v in routeVertices_EPGS3857:
 print('-----------------')
 print('Combining to route ...')
 
-import simplekml
 kml = simplekml.Kml(open=1)
 
 routePolyline = kml.newlinestring(name="Planned route")
@@ -76,8 +80,13 @@ print('Saving as KMZ route ...')
 print('-----------------')
 print("Saved route as KMZ file on " + root)
 
-from CLTreport.summary import report_summary
-report_summary()
+
+def show_exception_and_exit(exc_type, exc_value, tb):
+    traceback.print_exception(exc_type, exc_value, tb)
+    input("Press key to exit.")
+    sys.exit(-1)
+
+sys.excepthook = show_exception_and_exit
 
 # Below are notes for making EXE package with pyinstaller from PY code.
 
