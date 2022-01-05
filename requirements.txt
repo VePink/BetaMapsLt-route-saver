@@ -1,0 +1,6 @@
+###### Requirements without Version Specifiers ######
+simplekml
+selenium-wire
+webdriver-manager
+
+###### Requirements with Version Specifiers ######
