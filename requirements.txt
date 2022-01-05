@@ -2,5 +2,6 @@
 simplekml
 selenium-wire
 webdriver-manager
+pyproj
 
 ###### Requirements with Version Specifiers ######
