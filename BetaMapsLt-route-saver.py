@@ -6,6 +6,7 @@ from seleniumwire import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 import traceback
 import sys
+from pyproj import Transformer
 
 root = (input("Paste path to folder. Result KML will be saved there: ") or "D:\\TEMP")
 print("Selected result folder: " + root)
@@ -40,7 +41,7 @@ driver.close()
 
 print('-----------------')
 print('Transforming vertex coordinates ...')
-from pyproj import Transformer
+
 transformer = Transformer.from_crs("epsg:3857", "epsg:4326")
 
 
